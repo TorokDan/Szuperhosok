@@ -9,8 +9,8 @@ namespace Szuperhosok
         private int _gyorsasag;
         private Oldalak _oldal;
 
-        public string name => _name;
-        public int ero => _ero;
+        public string Name => _name;
+        public int Ero => _ero;
         
         public Szuperhos(string name, bool mutant, int ero, int gyorsasag, Oldalak oldal)
         {
