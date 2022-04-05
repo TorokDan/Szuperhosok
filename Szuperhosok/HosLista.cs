@@ -67,7 +67,11 @@ namespace Szuperhosok
                 throw new NincsIlyenHosException();
             return p.AktualisHos;
         }
-
+        
+        /// <summary>
+        /// Bejárja a listát, és végrehajtja az elemeken a megadott metódust
+        /// </summary>
+        /// <param name="metodus"></param>
         public void Bejaras(BejaroHandler metodus)
         {
             BejaroHandler _metodus = metodus;
@@ -78,7 +82,12 @@ namespace Szuperhosok
                 elem = elem.KovetkezoHos;
             }
         }
-
+        
+        /// <summary>
+        /// Név alapján megkeresi a listából az elemet, és törli azt
+        /// </summary>
+        /// <param name="torlendo"></param>
+        /// <exception cref="NincsIlyenElemException"></exception>
         public void Torles(string torlendo)
         {
             HosElem e = null;
@@ -89,22 +98,39 @@ namespace Szuperhosok
                 e = p;
                 p = p.KovetkezoHos;
             }
-
             if (p != null)
             {
                 if (e == null) // Törlés mert megvan
-                {
                     _fej = p.KovetkezoHos; // első elem törlése
-                }
                 else
-                {
                     e.KovetkezoHos = p.KovetkezoHos; // valahanyadik elemet kell törölni
-                }
             }
             else // kivétel, mert nincs ilyen elem a listában
+                throw new NincsIlyenHosException();
+        }
+        /// <summary>
+        /// Referencia alapján megkeres egy elemet, majd törli azt.
+        /// </summary>
+        /// <param name="torlendo"></param>
+        public void Torles(Szuperhos torlendo) // TODO ide még egy vizsgálat kéne szerintem, de nem értem pontosan a feladatot :(
+        {
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null && p.AktualisHos != torlendo)
             {
-                throw new NincsIlyenElemException();
+                e = p;
+                p = p.KovetkezoHos;
             }
+            if (p != null)
+            {
+                if (e == null) // Törlés mert megvan
+                    _fej = p.KovetkezoHos; // első elem törlése
+                else
+                    e.KovetkezoHos = p.KovetkezoHos; // valahanyadik elemet kell törölni
+            }
+            else // kivétel, mert nincs ilyen elem a listában
+                throw new NincsIlyenHosException();
         }
     }
 }
