@@ -1,7 +1,9 @@
+using System;
+
 namespace Szuperhosok
 {
     public delegate void BejaroHandler(Szuperhos hos);
-    public class HosLista<T>
+    public class HosLista
     {
         private HosElem _fej;
 
@@ -131,6 +133,11 @@ namespace Szuperhosok
             }
             else // kivétel, mert nincs ilyen elem a listában
                 throw new NincsIlyenHosException();
+        }
+
+        public HosLista Szures()
+        {
+            throw new NotImplementedException();
         }
     }
 }

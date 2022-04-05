@@ -6,7 +6,7 @@ namespace Szuperhosok
     {
         static void Main(string[] args)
         {
-            HosLista<Szuperhos> hosok = new HosLista<Szuperhos>();
+            HosLista hosok = new HosLista();
             
             Szuperhos patrik = new Szuperhos("Patrik", true, 35, 35, Oldalak.Civil);
             for (int i = 0; i < 5; i++)
