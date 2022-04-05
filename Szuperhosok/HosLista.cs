@@ -1,6 +1,6 @@
 namespace Szuperhosok
 {
-    delegate void BejaroHandler(Szuperhos hos);
+    public delegate void BejaroHandler(Szuperhos hos);
     public class HosLista<T>
     {
         private HosElem _fej;
@@ -14,9 +14,15 @@ namespace Szuperhosok
             _fej = elem;
         }
 
-        // public Szuperhos Kereses(string nev)
-        // {
-        //     HosElem<Szuperhos>
-        // }
+        public void Bejaras(BejaroHandler metodus)
+        {
+            BejaroHandler _metodus = metodus;
+            HosElem elem = _fej;
+            while (elem != null)
+            {
+                metodus?.Invoke(elem.AktualisHos);
+                elem = elem.KovetkezoHos;
+            }
+        }
     }
 }

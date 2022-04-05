@@ -20,5 +20,10 @@ namespace Szuperhosok
             _gyorsasag = gyorsasag;
             _oldal = oldal;
         }
+
+        public override string ToString()
+        {
+            return $"{_name}, {_mutant}, {_ero}, {_gyorsasag}, {_oldal}";
+        }
     }
 }
