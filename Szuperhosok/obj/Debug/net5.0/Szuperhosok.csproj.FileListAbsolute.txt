@@ -1,0 +1,16 @@
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok.deps.json
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok.runtimeconfig.json
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok.runtimeconfig.dev.json
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok.dll
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/ref/Szuperhosok.dll
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/bin/Debug/net5.0/Szuperhosok.pdb
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.csprojAssemblyReference.cache
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.GeneratedMSBuildEditorConfig.editorconfig
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.AssemblyInfoInputs.cache
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.AssemblyInfo.cs
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.csproj.CoreCompileInputs.cache
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.dll
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/ref/Szuperhosok.dll
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.pdb
+/home/TorokDan/Documents/egyetem/prog2/lancoltLista/Szuperhosok/Szuperhosok/obj/Debug/net5.0/Szuperhosok.genruntimeconfig.cache
