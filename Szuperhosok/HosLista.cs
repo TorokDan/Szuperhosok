@@ -5,13 +5,43 @@ namespace Szuperhosok
     {
         private HosElem _fej;
 
-
-        public void UjElem(Szuperhos ujHos)
+        /// <summary>
+        /// Új hőst vesz fel. Az erő alapján rendezi az elemeket. Egy elemet csak egyszer lehet felvenni.
+        /// </summary>
+        /// <param name="ujHos"></param>
+        public void UjElem(Szuperhos ujHos) // TODO Hibás a vizsgálat rész
         {
-            HosElem elem = new HosElem();
-            elem.AktualisHos = ujHos;
-            elem.KovetkezoHos = _fej;
-            _fej = elem;
+            // Bejárás
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null && p.AktualisHos != ujHos && p.AktualisHos.Ero < ujHos.Ero)
+            {
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            // Vizsgálat
+            if (p != null || p.AktualisHos.Ero < ujHos.Ero) // Ez itt hibás
+            {
+                // Van már ilyen elem.
+                throw new VanMarIlyenHosException();
+            }
+            else
+            {
+                // elem felvétele
+                HosElem elem = new HosElem();
+                elem.AktualisHos = ujHos;
+                if (e != null)
+                {
+                    elem.KovetkezoHos = p;
+                    e.KovetkezoHos = elem;
+                }
+                else
+                {
+                    elem.KovetkezoHos = _fej;
+                    _fej = elem;
+                }
+            }
         }
 
         public void Bejaras(BejaroHandler metodus)
