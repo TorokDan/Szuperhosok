@@ -48,6 +48,25 @@ namespace Szuperhosok
                 }
             }
         }
+        /// <summary>
+        /// Név alapján megkeres egy hőst, ha nincs ilyen hős akkor kivételt dob
+        /// </summary>
+        /// <param name="nev"></param>
+        /// <returns></returns>
+        public Szuperhos Keres(string nev)
+        {
+            HosElem e = null;
+            HosElem p = _fej;
+            while (p != null && p.AktualisHos.Name != nev)
+            {
+                e = p;
+                p = p.KovetkezoHos;
+            }
+
+            if (p == null)
+                throw new NincsIlyenHosException();
+            return p.AktualisHos;
+        }
 
         public void Bejaras(BejaroHandler metodus)
         {
@@ -73,22 +92,17 @@ namespace Szuperhosok
 
             if (p != null)
             {
-                // Törlés mert megvan
-                if (e == null)
+                if (e == null) // Törlés mert megvan
                 {
-                    // első elem törlése
-                    _fej = p.KovetkezoHos;
+                    _fej = p.KovetkezoHos; // első elem törlése
                 }
                 else
                 {
-                    // valahanyadik elemet kell törölni
-                    e.KovetkezoHos = p.KovetkezoHos;
-                    
+                    e.KovetkezoHos = p.KovetkezoHos; // valahanyadik elemet kell törölni
                 }
             }
-            else
+            else // kivétel, mert nincs ilyen elem a listában
             {
-                // kivétel, mert nincs ilyen elem a listában
                 throw new NincsIlyenElemException();
             }
         }

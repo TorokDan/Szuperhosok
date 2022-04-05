@@ -37,6 +37,14 @@ namespace Szuperhosok
                 Console.WriteLine("Ilyen elem nincs");
             }
             hosok.Bejaras(Bejaro);
+            try
+            {
+                Console.WriteLine(hosok.Keres("Danidfg"));
+            }
+            catch (NincsIlyenHosException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         static void Bejaro(Szuperhos hos)
