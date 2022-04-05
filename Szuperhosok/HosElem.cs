@@ -1,16 +1,16 @@
 namespace Szuperhosok
 {
-    public class HosElem<T>
+    public class HosElem
     {
-        private T _aktualisHos;
-        private HosElem<Szuperhos> _kovetkezoHos;
+        private Szuperhos _aktualisHos;
+        private HosElem _kovetkezoHos;
 
-        public T AktualisHos
+        public Szuperhos AktualisHos
         {
             get => _aktualisHos;
             set => _aktualisHos = value;
         }
-        public HosElem<Szuperhos> KovetkezoHos
+        public HosElem KovetkezoHos
         {
             get => _kovetkezoHos;
             set => _kovetkezoHos = value;
