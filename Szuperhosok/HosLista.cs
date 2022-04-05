@@ -24,5 +24,38 @@ namespace Szuperhosok
                 elem = elem.KovetkezoHos;
             }
         }
+
+        public void Torles(string torlendo)
+        {
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null && p.AktualisHos.Name != torlendo)
+            {
+                e = p;
+                p = p.KovetkezoHos;
+            }
+
+            if (p != null)
+            {
+                // Törlés mert megvan
+                if (e == null)
+                {
+                    // első elem törlése
+                    _fej = p.KovetkezoHos;
+                }
+                else
+                {
+                    // valahanyadik elemet kell törölni
+                    e.KovetkezoHos = p.KovetkezoHos;
+                    
+                }
+            }
+            else
+            {
+                // kivétel, mert nincs ilyen elem a listában
+                throw new NincsIlyenElemException();
+            }
+        }
     }
 }

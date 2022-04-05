@@ -10,6 +10,16 @@ namespace Szuperhosok
             
             hosok.UjElem(new Szuperhos("Dani", true, 10, 10, Oldalak.Civil));
             hosok.UjElem(new Szuperhos("András", false, 20, 20, Oldalak.Gonosz));
+            hosok.UjElem(new Szuperhos("Levi", true, 30, 30, Oldalak.Jo));
+            hosok.Bejaras(Bejaro);
+            try
+            {
+                hosok.Torles("Joel");
+            }
+            catch (NincsIlyenElemException e)
+            {
+                Console.WriteLine("Ilyen elem nincs");
+            }
             hosok.Bejaras(Bejaro);
         }
 
