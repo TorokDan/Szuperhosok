@@ -5,6 +5,14 @@ namespace Szuperhosok
         private Szuperhos _aktualisHos;
         private HosElem _kovetkezoHos;
 
+        public HosElem()
+        {
+            
+        }
+        public HosElem(Szuperhos aktualisHoshos)
+        {
+            _aktualisHos = aktualisHoshos;
+        }
         public Szuperhos AktualisHos
         {
             get => _aktualisHos;

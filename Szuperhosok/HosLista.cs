@@ -9,34 +9,39 @@ namespace Szuperhosok
         /// Új hőst vesz fel. Az erő alapján rendezi az elemeket. Egy elemet csak egyszer lehet felvenni.
         /// </summary>
         /// <param name="ujHos"></param>
-        public void UjElem(Szuperhos ujHos) // TODO Hibás a vizsgálat rész
+        public void Beszuras(Szuperhos ujHos) // TODO Az új hős tartalmát is kéne vizsgálni szerintem
         {
             // Bejárás
             HosElem e = null;
             HosElem p = _fej;
-
             while (p != null && p.AktualisHos != ujHos && p.AktualisHos.Ero < ujHos.Ero)
             {
                 e = p;
                 p = p.KovetkezoHos;
             }
             // Vizsgálat
-            if (p != null || p.AktualisHos.Ero < ujHos.Ero) // Ez itt hibás
+            if (p != null) //  TODO Ez itt hibás lehet még
             {
-                // Van már ilyen elem.
-                throw new VanMarIlyenHosException();
-            }
-            else
-            {
-                // elem felvétele
-                HosElem elem = new HosElem();
-                elem.AktualisHos = ujHos;
-                if (e != null)
+                if ( p.AktualisHos == ujHos) // van már ilyen hős
                 {
-                    elem.KovetkezoHos = p;
-                    e.KovetkezoHos = elem;
+                    throw new VanMarIlyenHosException();
                 }
-                else
+                else // Jó helyen vagyunk, ide kell beilleszteni
+                {
+                    HosElem elem = new HosElem(ujHos);
+                    if (e != null)
+                        e.KovetkezoHos = elem;
+                    else
+                        _fej = elem;
+                    elem.KovetkezoHos = p;
+                }
+            }
+            else // elem felvétele
+            {
+                HosElem elem = new HosElem(ujHos);
+                if (e != null)
+                    e.KovetkezoHos = elem;
+                else // első elem
                 {
                     elem.KovetkezoHos = _fej;
                     _fej = elem;
