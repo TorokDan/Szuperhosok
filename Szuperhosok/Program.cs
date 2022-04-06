@@ -50,6 +50,7 @@ namespace Szuperhosok
             var teszt2 = hosok.ErosebbbMint(10);
             var teszt3 = teszt1.Metszet(teszt2);
             var teszt4 = teszt1.Unio(teszt2);
+            var teszt5 = teszt1.Kulonbség(teszt2);
             Console.WriteLine("teszt1");
             teszt1.Bejaras(Bejaro);
             Console.WriteLine("tesz2");
@@ -58,6 +59,8 @@ namespace Szuperhosok
             teszt3.Bejaras(Bejaro);
             Console.WriteLine("unio");
             teszt4.Bejaras(Bejaro);
+            Console.WriteLine("kulonbség");
+            teszt5.Bejaras(Bejaro);
         }
 
         static void Bejaro(Szuperhos hos)

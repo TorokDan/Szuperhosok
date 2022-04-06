@@ -283,5 +283,30 @@ namespace Szuperhosok
             
             return unio;
         }
+
+        /// <summary>
+        /// Kigyűjti azokat az elemeket, amik nincsenek benne a második listában.
+        /// </summary>
+        /// <param name="vizsgalt"></param>
+        /// <returns></returns>
+        public HosLista Kulonbség(HosLista vizsgalt)
+        {
+            HosLista kulonbseg = new HosLista();
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                try
+                {
+                    vizsgalt.Keres(p.AktualisHos.Name);
+                }
+                catch (NincsIlyenHosException e)
+                {
+                    kulonbseg.Beszuras(p.AktualisHos);
+                }
+                p = p.KovetkezoHos;
+            }
+            return kulonbseg;
+        }
     }
 }
