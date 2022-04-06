@@ -8,7 +8,7 @@ namespace Szuperhosok
         {
             HosLista hosok = new HosLista();
             
-            // Szuperhos patrik = new Szuperhos("Patrik", true, 35, 35, Oldalak.Civil);
+            Szuperhos patrik = new Szuperhos("Patrik", true, 35, 35, Oldalak.Civil);
             // for (int i = 0; i < 5; i++)
             // {
             //     try
@@ -25,7 +25,8 @@ namespace Szuperhosok
             hosok.Beszuras(new Szuperhos("Levi", true, 30, 30, Oldalak.Jo));
             hosok.Beszuras(new Szuperhos("Géza", true, 15, 15, Oldalak.Gonosz));
             hosok.Beszuras(new Szuperhos("Cecil", true, 20, 20, Oldalak.Jo));
-            hosok.Beszuras(new Szuperhos("Patrik", true, 35, 35, Oldalak.Civil));
+            hosok.Beszuras(new Szuperhos("Cecil", true, 20, 20, Oldalak.Jo));
+            hosok.Beszuras(patrik);
             hosok.Bejaras(Bejaro);
             Console.WriteLine();
             // try
@@ -46,21 +47,21 @@ namespace Szuperhosok
             //     Console.WriteLine(e.Message);
             // }
 
-            var teszt1 = hosok.LassabbbMint(30);
-            var teszt2 = hosok.ErosebbbMint(10);
-            var teszt3 = teszt1.Metszet(teszt2);
-            var teszt4 = teszt1.Unio(teszt2);
-            var teszt5 = teszt1.Kulonbség(teszt2);
-            Console.WriteLine("teszt1");
-            teszt1.Bejaras(Bejaro);
-            Console.WriteLine("tesz2");
-            teszt2.Bejaras(Bejaro);
-            Console.WriteLine("metszet");
-            teszt3.Bejaras(Bejaro);
-            Console.WriteLine("unio");
-            teszt4.Bejaras(Bejaro);
-            Console.WriteLine("kulonbség");
-            teszt5.Bejaras(Bejaro);
+            // var teszt1 = hosok.LassabbbMint(30);
+            // var teszt2 = hosok.ErosebbbMint(10);
+            // var teszt3 = teszt1.Metszet(teszt2);
+            // var teszt4 = teszt1.Unio(teszt2);
+            // var teszt5 = teszt1.Kulonbség(teszt2);
+            // Console.WriteLine("teszt1");
+            // teszt1.Bejaras(Bejaro);
+            // Console.WriteLine("tesz2");
+            // teszt2.Bejaras(Bejaro);
+            // Console.WriteLine("metszet");
+            // teszt3.Bejaras(Bejaro);
+            // Console.WriteLine("unio");
+            // teszt4.Bejaras(Bejaro);
+            // Console.WriteLine("kulonbség");
+            // teszt5.Bejaras(Bejaro);
 
         }
 

@@ -11,20 +11,21 @@ namespace Szuperhosok
         /// Új hőst vesz fel. Az erő alapján rendezi az elemeket. Egy elemet csak egyszer lehet felvenni.
         /// </summary>
         /// <param name="ujHos"></param>
-        public void Beszuras(Szuperhos ujHos) // TODO Az új hős tartalmát is kéne vizsgálni szerintem
+        public void Beszuras(Szuperhos ujHos)
         {
             // Bejárás
             HosElem e = null;
             HosElem p = _fej;
-            while (p != null && p.AktualisHos != ujHos && p.AktualisHos.Ero < ujHos.Ero)
+            while (p != null && (p.AktualisHos != ujHos || !p.AktualisHos.Equals(ujHos)) && 
+                   p.AktualisHos.Ero < ujHos.Ero)
             {
                 e = p;
                 p = p.KovetkezoHos;
             }
             // Vizsgálat
-            if (p != null) //  TODO Ez itt hibás lehet még
+            if (p != null)
             {
-                if ( p.AktualisHos == ujHos) // van már ilyen hős
+                if ( p.AktualisHos == ujHos || p.AktualisHos.Equals(ujHos)) // van már ilyen hős
                 {
                     throw new VanMarIlyenHosException();
                 }
