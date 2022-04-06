@@ -3,7 +3,7 @@ using System;
 namespace Szuperhosok
 {
     public delegate void BejaroHandler(Szuperhos hos);
-    public class HosLista
+    public class HosLista // Lehet, hogy ennek genericnek kell lennie
     {
         private HosElem _fej;
 
@@ -135,9 +135,95 @@ namespace Szuperhosok
                 throw new NincsIlyenHosException();
         }
 
-        public HosLista Szures()
+        /// <summary>
+        /// Kigyűjti egy új listába a paraméterként átadott értéknél gyengébb hősöket.
+        /// </summary>
+        public HosLista GyengebbMint(int hatar)
         {
-            throw new NotImplementedException();
+            HosLista gyengek = new HosLista();
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                if (p.AktualisHos.Ero < hatar)
+                    gyengek.Beszuras(p.AktualisHos);
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            return gyengek;
+        }
+        /// <summary>
+        /// Kigyűjti egy új listába a paraméterként átadott értéknél erősebb hősöket.
+        /// </summary>
+        public HosLista ErosebbbMint(int hatar)
+        {
+            HosLista erosek = new HosLista();
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                if (hatar < p.AktualisHos.Ero)
+                    erosek.Beszuras(p.AktualisHos);
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            return erosek;
+        }
+        /// <summary>
+        /// Kigyűjti egy új listába a paraméterként átadott értéknél lassabb hősöket.
+        /// </summary>
+        public HosLista LassabbbMint(int hatar)
+        {
+            HosLista lassuak = new HosLista();
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                if (p.AktualisHos.Gyorsasag < hatar)
+                    lassuak.Beszuras(p.AktualisHos);
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            return lassuak;
+        }
+        /// <summary>
+        /// Kigyűjti egy új listába a paraméterként átadott értéknél gyorsabb hősöket.
+        /// </summary>
+        public HosLista GyorsabbMint(int hatar)
+        {
+            HosLista gyorsak = new HosLista();
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                if (hatar < p.AktualisHos.Gyorsasag)
+                    gyorsak.Beszuras(p.AktualisHos);
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            return gyorsak;
+        }
+        /// <summary>
+        /// Kigyűjti egy új listába a paraméterként átadott oldalon álló hősöket.
+        /// </summary>
+        public HosLista AzonosOldaluak(Oldalak oldal)
+        {
+            HosLista azonosOldaluak = new HosLista();
+            HosElem e = null;
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                if (p.AktualisHos.Oldal == oldal)
+                    azonosOldaluak.Beszuras(p.AktualisHos);
+                e = p;
+                p = p.KovetkezoHos;
+            }
+            return azonosOldaluak;
         }
     }
 }
