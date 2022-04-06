@@ -216,6 +216,11 @@ namespace Szuperhosok
             return azonosOldaluak;
         }
 
+        /// <summary>
+        /// Megkeresi a paraméterül átadott listával a közös elemeket.
+        /// </summary>
+        /// <param name="vizsgalt"></param>
+        /// <returns>Mindkét listában szereplő elemek listája.</returns>
         public HosLista Metszet(HosLista vizsgalt)
         {
             HosLista metszet = new HosLista();
@@ -223,19 +228,60 @@ namespace Szuperhosok
 
             while (p != null)
             {
-                HosElem p2 = vizsgalt._fej;
-                while (p2 != null && p != p2)
+                bool van = true;
+                try
                 {
-                    p2 = p2.KovetkezoHos;
+                    vizsgalt.Keres(p.AktualisHos.Name);
                 }
-
-                if (p2 != null)
+                catch (NincsIlyenHosException exception)
                 {
+                    van = false;
+                }
+                if (van)
                     metszet.Beszuras(p.AktualisHos);
-                }
                 p = p.KovetkezoHos;
             }
             return metszet;
+        }
+
+        /// <summary>
+        /// Kigyűjti az összes elemet egy listába
+        /// </summary>
+        /// <param name="vizsgalt"></param>
+        /// <returns>Minden elem a két listából egy listába rendezve</returns>
+        public HosLista Unio(HosLista vizsgalt)
+        {
+            HosLista unio = new HosLista();
+            HosElem p = _fej;
+            while (p != null)
+            {
+                try
+                {
+                    unio.Beszuras(p.AktualisHos);
+                }
+                catch (VanMarIlyenHosException e)
+                {
+                    
+                }
+                p = p.KovetkezoHos;
+            }
+
+            p = vizsgalt._fej;
+            while (p != null)
+            {
+                try
+                {
+                    unio.Keres(p.AktualisHos.Name);
+                }
+                catch (NincsIlyenHosException e)
+                {
+                    unio.Beszuras(p.AktualisHos);
+                }
+
+                p = p.KovetkezoHos;
+            }
+            
+            return unio;
         }
     }
 }
