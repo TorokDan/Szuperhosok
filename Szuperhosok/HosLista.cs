@@ -57,11 +57,9 @@ namespace Szuperhosok
         /// <returns></returns>
         public Szuperhos Keres(string nev)
         {
-            HosElem e = null;
             HosElem p = _fej;
             while (p != null && p.AktualisHos.Name != nev)
             {
-                e = p;
                 p = p.KovetkezoHos;
             }
 
@@ -141,14 +139,12 @@ namespace Szuperhosok
         public HosLista GyengebbMint(int hatar)
         {
             HosLista gyengek = new HosLista();
-            HosElem e = null;
             HosElem p = _fej;
 
             while (p != null)
             {
                 if (p.AktualisHos.Ero < hatar)
                     gyengek.Beszuras(p.AktualisHos);
-                e = p;
                 p = p.KovetkezoHos;
             }
             return gyengek;
@@ -177,14 +173,12 @@ namespace Szuperhosok
         public HosLista LassabbbMint(int hatar)
         {
             HosLista lassuak = new HosLista();
-            HosElem e = null;
             HosElem p = _fej;
 
             while (p != null)
             {
                 if (p.AktualisHos.Gyorsasag < hatar)
                     lassuak.Beszuras(p.AktualisHos);
-                e = p;
                 p = p.KovetkezoHos;
             }
             return lassuak;
@@ -195,14 +189,12 @@ namespace Szuperhosok
         public HosLista GyorsabbMint(int hatar)
         {
             HosLista gyorsak = new HosLista();
-            HosElem e = null;
             HosElem p = _fej;
 
             while (p != null)
             {
                 if (hatar < p.AktualisHos.Gyorsasag)
                     gyorsak.Beszuras(p.AktualisHos);
-                e = p;
                 p = p.KovetkezoHos;
             }
             return gyorsak;
@@ -213,17 +205,37 @@ namespace Szuperhosok
         public HosLista AzonosOldaluak(Oldalak oldal)
         {
             HosLista azonosOldaluak = new HosLista();
-            HosElem e = null;
             HosElem p = _fej;
 
             while (p != null)
             {
                 if (p.AktualisHos.Oldal == oldal)
                     azonosOldaluak.Beszuras(p.AktualisHos);
-                e = p;
                 p = p.KovetkezoHos;
             }
             return azonosOldaluak;
+        }
+
+        public HosLista Metszet(HosLista vizsgalt)
+        {
+            HosLista metszet = new HosLista();
+            HosElem p = _fej;
+
+            while (p != null)
+            {
+                HosElem p2 = vizsgalt._fej;
+                while (p2 != null && p != p2)
+                {
+                    p2 = p2.KovetkezoHos;
+                }
+
+                if (p2 != null)
+                {
+                    metszet.Beszuras(p.AktualisHos);
+                }
+                p = p.KovetkezoHos;
+            }
+            return metszet;
         }
     }
 }
