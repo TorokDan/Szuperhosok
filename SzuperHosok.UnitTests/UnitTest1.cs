@@ -25,17 +25,17 @@ namespace SzuperHosok.UnitTests
         }
 
         [Test]
-        public void Keres_Dani()
+        public void Keres_Dani_Talal()
         {
             Assert.AreEqual(dani,hosok.Keres("Dani"));
         }
         [Test]
-        public void Keres_Patrik()
+        public void Keres_Patrik_Talal()
         {
             Assert.AreEqual(patrik,hosok.Keres("Patrik"));
         }
         [Test]
-        public void Keres_Hiba()
+        public void Keres_Levi_NincsIlyenHosException()
         {
             Assert.Throws<Szuperhosok.NincsIlyenHosException>(() => hosok.Keres("Levi"));
         }
