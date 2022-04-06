@@ -27,5 +27,21 @@ namespace Szuperhosok
         {
             return $"{_name}, {_mutant}, {_ero}, {_gyorsasag}, {_oldal}";
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || !(this.GetType() == obj.GetType()))
+                return false;
+            else if (this._name == ((Szuperhos)obj)._name && 
+                     this._mutant == ((Szuperhos)obj)._mutant &&
+                     this._ero == ((Szuperhos)obj)._ero &&
+                     this._gyorsasag == ((Szuperhos)obj)._gyorsasag &&
+                     this._oldal == ((Szuperhos)obj)._oldal)
+            {
+                return true;
+            }
+        
+            return false;
+        }
     }
 }

@@ -61,6 +61,7 @@ namespace Szuperhosok
             teszt4.Bejaras(Bejaro);
             Console.WriteLine("kulonbség");
             teszt5.Bejaras(Bejaro);
+
         }
 
         static void Bejaro(Szuperhos hos)
